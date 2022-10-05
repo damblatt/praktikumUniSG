@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace datumsformatierung
 {
-    internal class Date
+    public class Date
     {
         public int Day { get; }
         public int Month { get; }

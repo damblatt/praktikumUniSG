@@ -5,11 +5,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-[assembly: InternalsVisibleTo("datumsformatierung.test")]
-
 namespace datumsformatierung
 {
-    internal class DateFormatter
+    public class DateFormatter
     {
         public string GetFormattedDate(Date date, string format)
         {

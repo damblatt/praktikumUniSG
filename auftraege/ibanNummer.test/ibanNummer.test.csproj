@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\IBANNUmmer\2ibanNummer.csproj" />
+    <ProjectReference Include="..\IBANNUmmer\ibanNummer.csproj" />
   </ItemGroup>
 
 </Project>

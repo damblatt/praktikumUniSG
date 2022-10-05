@@ -3,15 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1datumsformatierung", "datumsformatierung\1datumsformatierung.csproj", "{9B3DA66D-66C0-4B4C-BC5F-7FACC4538456}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "datumsformatierung", "datumsformatierung\datumsformatierung.csproj", "{9B3DA66D-66C0-4B4C-BC5F-7FACC4538456}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2ibanNummer", "IBANNUmmer\2ibanNummer.csproj", "{79B4F9E1-C7AA-4554-83FD-92D37DBB30C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ibanNummer", "IBANNUmmer\ibanNummer.csproj", "{79B4F9E1-C7AA-4554-83FD-92D37DBB30C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1datumsformatierung.test", "datumsformatierungTest\1datumsformatierung.test.csproj", "{427F0F2B-C9CC-48DF-BD49-C0B2145C8A7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "datumsformatierung.test", "datumsformatierungTest\datumsformatierung.test.csproj", "{427F0F2B-C9CC-48DF-BD49-C0B2145C8A7B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2ibanNummer.test", "ibanNummer.test\2ibanNummer.test.csproj", "{CB70ED00-7A65-4988-946F-97AE8F6247A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ibanNummer.test", "ibanNummer.test\ibanNummer.test.csproj", "{CB70ED00-7A65-4988-946F-97AE8F6247A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3erstellenEinesIndex", "erstellenEinesIndex\3erstellenEinesIndex.csproj", "{0A7823EE-BBAD-4A53-B569-F755DD8CC426}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "erstellenEinesIndex", "erstellenEinesIndex\erstellenEinesIndex.csproj", "{0A7823EE-BBAD-4A53-B569-F755DD8CC426}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "datumsformatierungV2", "1datumsformatierungV2\datumsformatierungV2.csproj", "{B8CFCF8B-EE22-45E9-B073-DA49E9C8EF73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "datumsformatierung", "datumsformatierung", "{E90D1D04-5CE1-4528-B555-2E7AA2D476A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iban", "iban", "{12028863-6BD1-42D9-B5F7-9B7586A8C81D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "index", "index", "{C01E310B-84E6-4309-B734-67FF0322BFB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,13 +47,21 @@ Global
 		{0A7823EE-BBAD-4A53-B569-F755DD8CC426}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A7823EE-BBAD-4A53-B569-F755DD8CC426}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A7823EE-BBAD-4A53-B569-F755DD8CC426}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A56BEABF-7F9E-40B0-8B39-2A35DFAC6E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A56BEABF-7F9E-40B0-8B39-2A35DFAC6E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A56BEABF-7F9E-40B0-8B39-2A35DFAC6E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A56BEABF-7F9E-40B0-8B39-2A35DFAC6E14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8CFCF8B-EE22-45E9-B073-DA49E9C8EF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8CFCF8B-EE22-45E9-B073-DA49E9C8EF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8CFCF8B-EE22-45E9-B073-DA49E9C8EF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8CFCF8B-EE22-45E9-B073-DA49E9C8EF73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B3DA66D-66C0-4B4C-BC5F-7FACC4538456} = {E90D1D04-5CE1-4528-B555-2E7AA2D476A2}
+		{79B4F9E1-C7AA-4554-83FD-92D37DBB30C4} = {12028863-6BD1-42D9-B5F7-9B7586A8C81D}
+		{427F0F2B-C9CC-48DF-BD49-C0B2145C8A7B} = {E90D1D04-5CE1-4528-B555-2E7AA2D476A2}
+		{CB70ED00-7A65-4988-946F-97AE8F6247A9} = {12028863-6BD1-42D9-B5F7-9B7586A8C81D}
+		{0A7823EE-BBAD-4A53-B569-F755DD8CC426} = {C01E310B-84E6-4309-B734-67FF0322BFB0}
+		{B8CFCF8B-EE22-45E9-B073-DA49E9C8EF73} = {E90D1D04-5CE1-4528-B555-2E7AA2D476A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F9A02639-75AE-46F5-BD36-451017B93CCC}

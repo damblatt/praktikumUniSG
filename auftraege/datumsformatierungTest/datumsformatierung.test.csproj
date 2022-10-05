@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\datumsformatierung\1datumsformatierung.csproj" />
+    <ProjectReference Include="..\datumsformatierung\datumsformatierung.csproj" />
   </ItemGroup>
 
 </Project>
