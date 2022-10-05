@@ -11,13 +11,9 @@ namespace erstellenEinesIndex
     internal class Definitionsliste
     {
         public static string[,] tabelle = new string[13, 20];
-        //public static List<string[,]> tabelle1 = new List<string[,]> [1, 20];
 
-        //public List<string> ganzerDatensatz = new List<string>();
         public List<string> index = new List<string>(); // beinhaltet index
-        //public List<string> inhalt = new List<string>(); // beinhaltet nur den inhalt, nicht den index
 
-        //public static List<string> jederGanzeDatensatz = new List<string>();
         public static List<string> jederIndex = new List<string>(); // beinhaltet index
         public static List<string> jederInhalt = new List<string>(); // beinhaltet nur den inhalt, nicht den index
 
@@ -39,12 +35,8 @@ namespace erstellenEinesIndex
             {
                 jederInhalt.Add(content);
             }
-            //inhalt.Remove(definitionsliste[0]);
             jederInhalt.Remove(defliste[0, 0]);
             jederInhalt = jederInhalt.Distinct().ToList();
-
-            //PrintDefinition(definitionsliste);
-            //Test(definitionsliste);
 
             publicZaehler++;
         }
