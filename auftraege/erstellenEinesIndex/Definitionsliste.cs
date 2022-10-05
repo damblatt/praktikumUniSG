@@ -10,34 +10,31 @@ namespace erstellenEinesIndex
 {
     internal class Definitionsliste
     {
-        public static string[,] tabelle = new string[4, 6];
+        public static string[,] jederDatensatz = new string[4, 6];
         // first int: anzahl datensätze, resp. objekte, die aufgerufen werden
         // second int:  anzahl inhalte, die übergeben werden (+ 1 index)
 
-        public List<string> index = new List<string>(); // beinhaltet index
+        public static List<string> jederIndex = new List<string>(); // beinhaltet jeden Index
+        public static List<string> jederInhalt = new List<string>(); // beinhaltet jeden Inhalt, ohne Index
 
-        public static List<string> jederIndex = new List<string>(); // beinhaltet index
-        public static List<string> jederInhalt = new List<string>(); // beinhaltet nur den inhalt, nicht den index
-
-        public static string indexMessage;
         public static int publicZaehler = 0;
 
-        public Definitionsliste(string[,] defliste)
+        public Definitionsliste(string[,] datensatz)
         {
             int i = 0;
-            foreach (var item in defliste)
+            foreach (var item in datensatz)
             {
-                tabelle[publicZaehler, i] = item;
+                jederDatensatz[publicZaehler, i] = item;
                 i++;
             }
-            jederIndex.Add(defliste[0, 0]);
-            PrintNormalVersion(defliste);
+            jederIndex.Add(datensatz[0, 0]);
+            PrintNormalVersion(datensatz);
 
-            foreach (string content in defliste)
+            foreach (string content in datensatz)
             {
                 jederInhalt.Add(content);
             }
-            jederInhalt.Remove(defliste[0, 0]);
+            jederInhalt.Remove(datensatz[0, 0]);
             jederInhalt = jederInhalt.Distinct().ToList();
 
             publicZaehler++;
@@ -66,9 +63,9 @@ namespace erstellenEinesIndex
                 int i = 0;
                 foreach (var index in jederIndex)
                 {
-                    for (int zaehler = 1; zaehler < tabelle.GetLength(1); zaehler++)
+                    for (int zaehler = 1; zaehler < jederDatensatz.GetLength(1); zaehler++)
                     {
-                        if (tabelle[i, zaehler] != null && tabelle[i, zaehler].Contains(inhalt))
+                        if (jederDatensatz[i, zaehler] != null && jederDatensatz[i, zaehler].Contains(inhalt))
                         {
                             var nachricht = $"{index} ";
                             Console.Write(nachricht);
