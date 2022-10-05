@@ -10,7 +10,9 @@ namespace erstellenEinesIndex
 {
     internal class Definitionsliste
     {
-        public static string[,] tabelle = new string[13, 20];
+        public static string[,] tabelle = new string[4, 6];
+        // first int: anzahl datensätze, resp. objekte, die aufgerufen werden
+        // second int:  anzahl inhalte, die übergeben werden (+ 1 index)
 
         public List<string> index = new List<string>(); // beinhaltet index
 
