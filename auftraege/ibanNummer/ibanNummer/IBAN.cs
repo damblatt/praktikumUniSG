@@ -9,11 +9,9 @@ using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
-[assembly: InternalsVisibleTo("2ibanNummer.test")]
-
 namespace IBANNUmmer
 {
-    internal class IBAN
+    public class IBAN
     {
         public int Bankleitzahl { get; }
         public int Kontonummer { get; }
