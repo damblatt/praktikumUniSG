@@ -6,13 +6,21 @@ namespace datumsformatierung
     {
         static void Main(string[] args)
         {
-            DateFormatter dateForm = new DateFormatter();
-
             Date date = new Date(01, 02, 2003);
+            
+            DateFormatter formattedDate = new DateFormatter();
 
-            Console.WriteLine(dateForm.GetFormattedDate(date, "CH"));
-            Console.WriteLine(dateForm.GetFormattedDate(date, "US"));
-            Console.WriteLine(dateForm.GetFormattedDate(date, "ISO"));
+            CheckFormattedDate(formattedDate.GetFormattedDate(date, "CH"));
+            CheckFormattedDate(formattedDate.GetFormattedDate(date, "US"));
+            CheckFormattedDate(formattedDate.GetFormattedDate(date, "ISO"));
+        }
+
+        public static void CheckFormattedDate(string outputFormattedDate)
+        {
+            if (outputFormattedDate != "")
+            {
+                Console.WriteLine(outputFormattedDate);
+            }
         }
     }
 }

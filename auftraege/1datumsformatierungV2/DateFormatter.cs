@@ -27,9 +27,9 @@ namespace datumsformatierung
                 {
                     return $"ISO: {date.Year}-{date.Month}-{date.Day}";
                 }
-                else { return "invalid format"; }
+                else { PrintInvalidFormat(); return ""; }
             }
-            else { return "invalid date"; }
+            else { PrintInvalidDate(); return ""; }
         }
 
         public bool DateIsValid(Date date)
@@ -47,6 +47,15 @@ namespace datumsformatierung
                 return false;
             }
             return true;
+        }
+
+        public void PrintInvalidFormat()
+        {
+            Console.WriteLine("invalid format");
+        }
+        public void PrintInvalidDate()
+        {
+            Console.WriteLine("invalid date");
         }
     }
 }
