@@ -1,3 +1,5 @@
+using Microsoft.VisualStudio.TestPlatform.TestHost;
+
 namespace datumsformatierung.test
 {
     [TestClass]
@@ -11,8 +13,8 @@ namespace datumsformatierung.test
             var formattedDate = new FormattedDate(date, "CH"); ;
 
             // Act
-            formattedDate.SetMessage();
-            var message = formattedDate.Message;
+            formattedDate.FormatDate();
+            var message = Program.GetMessage(formattedDate);
             Console.WriteLine(message);
 
             // Assert
@@ -27,8 +29,8 @@ namespace datumsformatierung.test
             var formattedDate = new FormattedDate(date, "CH"); ;
 
             // Act
-            formattedDate.SetMessage();
-            var message = formattedDate.Message;
+            formattedDate.FormatDate();
+            var message = Program.GetMessage(formattedDate);
             Console.WriteLine(message);
 
             // Assert
@@ -43,8 +45,8 @@ namespace datumsformatierung.test
             var formattedDate = new FormattedDate(date, "CHb"); ;
 
             // Act
-            formattedDate.SetMessage();
-            var message = formattedDate.Message;
+            formattedDate.FormatDate();
+            var message = Program.GetMessage(formattedDate);
             Console.WriteLine(message);
 
             // Assert
@@ -59,8 +61,8 @@ namespace datumsformatierung.test
             var formattedDate = new FormattedDate(date, "US"); ;
 
             // Act
-            formattedDate.SetMessage();
-            var message = formattedDate.Message;
+            formattedDate.FormatDate();
+            var message = Program.GetMessage(formattedDate);
             Console.WriteLine(message);
 
             // Assert
@@ -75,8 +77,8 @@ namespace datumsformatierung.test
             var formattedDate = new FormattedDate(date, "US"); ;
 
             // Act
-            formattedDate.SetMessage();
-            var message = formattedDate.Message;
+            formattedDate.FormatDate();
+            var message = Program.GetMessage(formattedDate);
             Console.WriteLine(message);
 
             // Assert
@@ -91,8 +93,8 @@ namespace datumsformatierung.test
             var formattedDate = new FormattedDate(date, "USA"); ;
 
             // Act
-            formattedDate.SetMessage();
-            var message = formattedDate.Message;
+            formattedDate.FormatDate();
+            var message = Program.GetMessage(formattedDate);
             Console.WriteLine(message);
 
             // Assert
@@ -107,8 +109,8 @@ namespace datumsformatierung.test
             var formattedDate = new FormattedDate(date, "ISO"); ;
 
             // Act
-            formattedDate.SetMessage();
-            var message = formattedDate.Message;
+            formattedDate.FormatDate();
+            var message = Program.GetMessage(formattedDate);
             Console.WriteLine(message);
 
             // Assert
@@ -123,8 +125,8 @@ namespace datumsformatierung.test
             var formattedDate = new FormattedDate(date, "ISO"); ;
 
             // Act
-            formattedDate.SetMessage();
-            var message = formattedDate.Message;
+            formattedDate.FormatDate();
+            var message = Program.GetMessage(formattedDate);
             Console.WriteLine(message);
 
             // Assert
@@ -139,8 +141,8 @@ namespace datumsformatierung.test
             var formattedDate = new FormattedDate(date, "IS"); ;
 
             // Act
-            formattedDate.SetMessage();
-            var message = formattedDate.Message;
+            formattedDate.FormatDate();
+            var message = Program.GetMessage(formattedDate);
             Console.WriteLine(message);
 
             // Assert

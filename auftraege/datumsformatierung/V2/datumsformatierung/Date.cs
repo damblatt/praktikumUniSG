@@ -21,18 +21,5 @@ namespace datumsformatierung
             this.Month = month;
             this.Year = year;
         }
-
-        public string GetDateCH()
-        {
-            return $"{Day}.{Month}.{Year}";
-        }
-        public string GetDateUS()
-        {
-            return $"{Month}/{Day}/{Year}";
-        }
-        public string GetDateISO()
-        {
-            return $"{Year}-{Month}-{Day}";
-        }
     }
 }

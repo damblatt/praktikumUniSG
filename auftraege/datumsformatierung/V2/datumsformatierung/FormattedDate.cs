@@ -13,6 +13,8 @@ namespace datumsformatierung
         public string Format { get; }
         public bool DateIsValid { get; private set; }
         public bool FormatIsValid { get; private set; }
+        public bool IsValid { get; private set; }
+
         public string Message { get; private set; }
 
         public FormattedDate(Date date, string format)
@@ -23,49 +25,52 @@ namespace datumsformatierung
             this.FormatIsValid = true;
         }
 
-        public void SetMessage()
+        public void FormatDate()
         {
-            CheckForIsValid();
-            if (!DateIsValid && !FormatIsValid)
+            CheckValidity();
+            SetMessage();
+        }
+
+        private void CheckValidity()
+        {
+            IsValid = IsDateValid();
+            if (IsValid == true)
             {
-                Message = "invalid date and format";
-            }
-            else if (!DateIsValid && FormatIsValid)
-            {
-                Message = "invalid date";
-            }
-            else if (DateIsValid && !FormatIsValid)
-            {
-                Message = "invalid format";
-            }
-            else
-            {
-                SetValidMessage();
+                IsValid = IsFormatValid();
             }
         }
 
-        public void CheckForIsValid()
+        private bool IsDateValid()
         {
             if (Date.Day > 31 || Date.Day < 1)
             {
                 DateIsValid = false;
+                return false;
             }
             else if (Date.Month > 12 || Date.Month < 1)
             {
                 DateIsValid = false;
+                return false;
             }
             else if (Date.Year < 0)
             {
                 DateIsValid = false;
+                return false;
             }
+            else { return true; }
+        }
 
+        private bool IsFormatValid()
+        {
             if (Format != "ch" && Format != "us" && Format != "iso")
             {
                 FormatIsValid = false;
+                return false;
             }
+            else { return true; }
         }
 
-        private void SetValidMessage()
+        private void SetMessage()
         {
             if (Format == "ch")
             {
