@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace erstellenEinesIndex
+﻿namespace erstellenEinesIndex
 {
     internal class Definitionsliste
     {
@@ -46,7 +38,7 @@ namespace erstellenEinesIndex
             for (int i = 1; i < defliste.GetLength(1); i++)
             {
                 var nachricht = $"{defliste[0, i]}, ";
-                if (i == defliste.GetLength(1) -1)
+                if (i == defliste.GetLength(1) - 1)
                 {
                     nachricht = $"{defliste[0, i]}";
                 }

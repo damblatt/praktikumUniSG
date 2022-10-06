@@ -9,25 +9,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ibanNummer", "ibanNummer\ib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ibanNummer.test", "ibanNummer\ibanNummer.test\ibanNummer.test.csproj", "{CB70ED00-7A65-4988-946F-97AE8F6247A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "erstellenEinesIndex", "erstellenEinesIndex\erstellenEinesIndexV1\erstellenEinesIndex.csproj", "{0A7823EE-BBAD-4A53-B569-F755DD8CC426}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "datumsformatierung", "datumsformatierung", "{E90D1D04-5CE1-4528-B555-2E7AA2D476A2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "datumsformatierungV1", "datumsformatierung\V1\datumsformatierung\datumsformatierungV1.csproj", "{9E9B761C-5B1A-4AF1-AAAE-EE45CE770A82}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "datumsformatierungV2", "datumsformatierung\V2\datumsformatierung\datumsformatierungV2.csproj", "{15496488-0475-4AB1-B358-5F118C23CB74}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "datumsformatierungV2.test", "datumsformatierung\V2\datumsformatierung.test\datumsformatierungV2.test.csproj", "{64311719-C047-44B1-9294-5FB23E0219DF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1", "V1", "{3A052E63-75F7-4114-BB40-2DA99A4166DE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2", "V2", "{F459EE6A-A04E-47A5-950B-8CECEBF8F45C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iban", "iban", "{1405F931-212E-4C84-ACE6-55F9788BAF8A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vererbung", "vererbung\vererbung.csproj", "{23DA5089-B5B9-4A1E-8D68-D1FCA99DBCEB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "calculator", "calculator\calculator.csproj", "{D55F4C40-611C-419A-8428-38AA8FE740A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "indexV1", "index\V1\index\indexV1.csproj", "{1EF46D52-F151-47ED-A7CB-925EF8FB2001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "indexV2", "index\V2\indexV2\indexV2\indexV2.csproj", "{AB279B07-7BA9-487F-A0F1-459DA3890E4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +41,6 @@ Global
 		{CB70ED00-7A65-4988-946F-97AE8F6247A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB70ED00-7A65-4988-946F-97AE8F6247A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB70ED00-7A65-4988-946F-97AE8F6247A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A7823EE-BBAD-4A53-B569-F755DD8CC426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A7823EE-BBAD-4A53-B569-F755DD8CC426}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A7823EE-BBAD-4A53-B569-F755DD8CC426}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A7823EE-BBAD-4A53-B569-F755DD8CC426}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E9B761C-5B1A-4AF1-AAAE-EE45CE770A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E9B761C-5B1A-4AF1-AAAE-EE45CE770A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E9B761C-5B1A-4AF1-AAAE-EE45CE770A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -71,19 +61,17 @@ Global
 		{D55F4C40-611C-419A-8428-38AA8FE740A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D55F4C40-611C-419A-8428-38AA8FE740A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D55F4C40-611C-419A-8428-38AA8FE740A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EF46D52-F151-47ED-A7CB-925EF8FB2001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF46D52-F151-47ED-A7CB-925EF8FB2001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF46D52-F151-47ED-A7CB-925EF8FB2001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF46D52-F151-47ED-A7CB-925EF8FB2001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB279B07-7BA9-487F-A0F1-459DA3890E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB279B07-7BA9-487F-A0F1-459DA3890E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB279B07-7BA9-487F-A0F1-459DA3890E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB279B07-7BA9-487F-A0F1-459DA3890E4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{427F0F2B-C9CC-48DF-BD49-C0B2145C8A7B} = {3A052E63-75F7-4114-BB40-2DA99A4166DE}
-		{79B4F9E1-C7AA-4554-83FD-92D37DBB30C4} = {1405F931-212E-4C84-ACE6-55F9788BAF8A}
-		{CB70ED00-7A65-4988-946F-97AE8F6247A9} = {1405F931-212E-4C84-ACE6-55F9788BAF8A}
-		{9E9B761C-5B1A-4AF1-AAAE-EE45CE770A82} = {3A052E63-75F7-4114-BB40-2DA99A4166DE}
-		{15496488-0475-4AB1-B358-5F118C23CB74} = {F459EE6A-A04E-47A5-950B-8CECEBF8F45C}
-		{64311719-C047-44B1-9294-5FB23E0219DF} = {F459EE6A-A04E-47A5-950B-8CECEBF8F45C}
-		{3A052E63-75F7-4114-BB40-2DA99A4166DE} = {E90D1D04-5CE1-4528-B555-2E7AA2D476A2}
-		{F459EE6A-A04E-47A5-950B-8CECEBF8F45C} = {E90D1D04-5CE1-4528-B555-2E7AA2D476A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F9A02639-75AE-46F5-BD36-451017B93CCC}
