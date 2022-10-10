@@ -1,77 +1,100 @@
-﻿namespace erstellenEinesIndex
+﻿using indexV2;
+using System;
+using System.Net.Http.Headers;
+using System.Text;
+
+namespace erstellenEinesIndex
 {
-    internal class Definitionsliste
+    internal class DefinitionList
     {
-        public static string[,] jederDatensatz = new string[4, 6];
-        // first int: anzahl datensätze, resp. objekte, die aufgerufen werden
-        // second int:  anzahl inhalte, die übergeben werden (+ 1 index)
+        public Dictionary<string, List<string>> DefList { get; set; }
+        public bool IsValid { get; set; }
 
-        public static List<string> jederIndex = new List<string>(); // beinhaltet jeden Index
-        public static List<string> jederInhalt = new List<string>(); // beinhaltet jeden Inhalt, ohne Index
-
-        public static int publicZaehler = 0;
-
-        public Definitionsliste(string[,] datensatz)
+        public DefinitionList(Dictionary<string, List<string>> definitionList)
         {
-            int i = 0;
-            foreach (var item in datensatz)
-            {
-                jederDatensatz[publicZaehler, i] = item;
-                i++;
-            }
-            jederIndex.Add(datensatz[0, 0]);
-            PrintNormalVersion(datensatz);
-
-            foreach (string content in datensatz)
-            {
-                jederInhalt.Add(content);
-            }
-            jederInhalt.Remove(datensatz[0, 0]);
-            jederInhalt = jederInhalt.Distinct().ToList();
-
-            publicZaehler++;
+            DefList = definitionList;
+            IsValid = false;
         }
 
-        public void PrintNormalVersion(string[,] defliste)
+        public string GetValuesByIndex(string index)
         {
-            Console.Write($"{defliste[0, 0]}: ");
-            for (int i = 1; i < defliste.GetLength(1); i++)
+            Dictionary<string, List<string>>.KeyCollection keys = DefList.Keys;
+            Dictionary<string, List<string>>.ValueCollection values = DefList.Values;
+            StringBuilder valuesString = new StringBuilder();
+
+            // build valuesString
+            foreach (KeyValuePair<string, List<string>> kvp in DefList)
             {
-                var nachricht = $"{defliste[0, i]}, ";
-                if (i == defliste.GetLength(1) - 1)
+                if (kvp.Key == index)
                 {
-                    nachricht = $"{defliste[0, i]}";
+                    IsValid = true;
+                    valuesString.Clear();
+                    valuesString.AppendJoin(", ", kvp.Value);
                 }
-                Console.Write(nachricht);
             }
-            Console.WriteLine("\n");
+
+            // invalid, error message
+            if (IsValid)
+            {
+                return $"{index}: {valuesString}";
+            }
+            else
+            {
+                return $"{index} is not a valid index/key.";
+            }
         }
 
-        public static void Test()
+        public string GetIndexByValues(string value)
         {
-            foreach (var inhalt in jederInhalt)
+            Dictionary<string, List<string>>.KeyCollection keys = DefList.Keys;
+            Dictionary<string, List<string>>.ValueCollection values = DefList.Values;
+            StringBuilder indexString = new StringBuilder();
+            IsValid = false;
+
+            // build indexString
+            foreach (KeyValuePair<string, List<string>> kvp in DefList)
             {
-                Console.Write($"{inhalt}: ");
-                int i = 0;
-                foreach (var index in jederIndex)
-                {
-                    for (int zaehler = 1; zaehler < jederDatensatz.GetLength(1); zaehler++)
-                    {
-                        if (jederDatensatz[i, zaehler] != null && jederDatensatz[i, zaehler].Contains(inhalt))
-                        {
-                            var nachricht = $"{index} ";
-                            Console.Write(nachricht);
-                        }
-                    }
-                    i++;
-                }
-                Console.WriteLine("\n");
+                IsValid = true;
+                indexString.Append(kvp.Value.Contains(value) ? $"{kvp.Key}, ": "");
             }
-            Console.ReadKey();
-            Console.Clear();
-            publicZaehler = 0;
-            jederIndex.Clear();
-            jederInhalt.Clear();
+
+            // invalid, error message
+            if (IsValid)
+            {
+                indexString.Remove(indexString.Length - 2, 2);
+                return $"{value}: {indexString}";
+            }
+            else
+            {
+                return $"{value} is not a valid value.";
+            }
         }
+
+        //public static void Test()
+        //{
+        //    foreach (var inhalt in jederInhalt)
+        //    {
+        //        Console.Write($"{inhalt}: ");
+        //        int i = 0;
+        //        foreach (var index in jederIndex)
+        //        {
+        //            for (int zaehler = 1; zaehler < jederDatensatz.GetLength(1); zaehler++)
+        //            {
+        //                if (jederDatensatz[i, zaehler] != null && jederDatensatz[i, zaehler].Contains(inhalt))
+        //                {
+        //                    var nachricht = $"{index} ";
+        //                    Console.Write(nachricht);
+        //                }
+        //            }
+        //            i++;
+        //        }
+        //        Console.WriteLine("\n");
+        //    }
+        //    Console.ReadKey();
+        //    Console.Clear();
+        //    publicZaehler = 0;
+        //    jederIndex.Clear();
+        //    jederInhalt.Clear();
+        //}
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using indexV2;
+using System.Collections;
+using System.Runtime.ExceptionServices;
 
 namespace erstellenEinesIndex
 {
@@ -6,33 +8,23 @@ namespace erstellenEinesIndex
     {
         static void Main(string[] args)
         {
-            // Beispiel 1
-            //-----------------------------------------------------------------------------------------
-            var inhaltBlume = new string[1, 5] { { "Blume", "Blatt", "Stiel", "Bluete", "Gruen" } };
-            var inhaltBaum = new string[1, 6] { { "Baum", "Stamm", "Ast", "Bluete", "Gruen", "Blatt" } };
-            var inhaltPilz = new string[1, 4] { { "Pilz", "Hut", "Farbe", "Stiel" } };
+            var dict = new Dictionary<string, List<string>>();
 
-            var defBlume = new Definitionsliste(inhaltBlume);
-            var defBaum = new Definitionsliste(inhaltBaum);
-            var defPilz = new Definitionsliste(inhaltPilz);
-            Console.WriteLine("----------------------------------------------------------");
-            Console.WriteLine("");
-            Definitionsliste.Test();
+            var blumeInhalt = new List<string> { "Blatt", "Stiel", "Bluete", "Gruen" };
+            dict.Add("Blume", blumeInhalt);
 
-            // Beispiel 2
-            //-----------------------------------------------------------------------------------------
-            var inhaltTisch = new string[1, 3] { { "Tisch", "Holz", "Beine" } };
-            var inhaltSchrank = new string[1, 3] { { "Schrank", "Holz", "Tuer" } };
-            var inhaltStuhl = new string[1, 4] { { "Stuhl", "Lehne", "Beine", "Sitzflaeche" } };
-            var inhaltBett = new string[1, 4] { { "Bett", "Holz", "Beine", "Laken" } };
+            var baumInhalt = new List<string> { "Stamm", "Ast", "Bluete", "Gruen", "Blatt" };
+            dict.Add("Baum", baumInhalt);
 
-            var defTisch = new Definitionsliste(inhaltTisch);
-            var defSchrank = new Definitionsliste(inhaltSchrank);
-            var defStuhl = new Definitionsliste(inhaltStuhl);
-            var defBett = new Definitionsliste(inhaltBett);
-            Console.WriteLine("----------------------------------------------------------");
-            Console.WriteLine("");
-            Definitionsliste.Test();
+            var pilzInhalt = new List<string> { "Hut", "Farbe", "Stiel" };
+            dict.Add("Pilz", pilzInhalt);
+
+
+            var defListe = new DefinitionList(dict);
+            string inhalt = defListe.GetValuesByIndex("Pilz");
+            string index = defListe.GetIndexByValues("Gruen");
+            Console.WriteLine(inhalt);
+            Console.WriteLine(index);
         }
     }
 }
