@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uml", "uml\uml\uml.csproj",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uml.Test", "uml\uml.Test\uml.Test.csproj", "{14C6FC6B-ADCF-40F7-AB3D-8A67558386AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexV2.Test", "index\V2\IndexV2.Test\IndexV2.Test.csproj", "{1923067F-F5FA-49AD-BB6F-E66078E0600C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndexV2.Test", "index\V2\IndexV2.Test\IndexV2.Test.csproj", "{1923067F-F5FA-49AD-BB6F-E66078E0600C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testprojekt", "..\Testprojekt\Testprojekt.csproj", "{C8A0E58B-6C6D-4246-810D-C78584CBEDB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{1923067F-F5FA-49AD-BB6F-E66078E0600C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1923067F-F5FA-49AD-BB6F-E66078E0600C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1923067F-F5FA-49AD-BB6F-E66078E0600C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8A0E58B-6C6D-4246-810D-C78584CBEDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A0E58B-6C6D-4246-810D-C78584CBEDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A0E58B-6C6D-4246-810D-C78584CBEDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A0E58B-6C6D-4246-810D-C78584CBEDB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

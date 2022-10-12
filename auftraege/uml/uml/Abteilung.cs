@@ -7,10 +7,6 @@ using System.Threading.Tasks;
 
 namespace uml
 {
-    public interface IMitarbeiter
-    {
-        public string PrintMitarbeiterListe();
-    }
 
     public class Abteilung
     {
@@ -59,10 +55,6 @@ namespace uml
             var stringBuilder = new StringBuilder();
             var managerStringBuilder = new StringBuilder("Manager:\n");
             var angestellterStringBuilder = new StringBuilder("Angestellte:\n");
-            //Type t = typeof(String);
-            //MethodInfo substring = t.GetMethod("substring", new Type[] { typeof(int), typeof(int) });
-            //Object result = substring.Invoke("Hello World", new Object[] { 7, 5 });
-            //Console.WriteLine("{0} returned \"{1}\"", substring, result);
 
             foreach (var mitarbeiter in MitarbeiterListe)
             {
