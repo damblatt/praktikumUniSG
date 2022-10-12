@@ -22,7 +22,7 @@ namespace uml
         // Methods
         string IMitarbeiter.PrintMitarbeiterListe()
         {
-            string ausgabe = $"Name: {Name}, Monatslohn: {Monatslohn}";
+            string ausgabe = $"-  Name: {Name}, Monatslohn: {Monatslohn}";
             return $"{ausgabe}";
         }
         

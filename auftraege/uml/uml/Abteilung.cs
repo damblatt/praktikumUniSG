@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -56,18 +57,22 @@ namespace uml
         public string GetMitarbeiter()
         {
             var stringBuilder = new StringBuilder();
-            var managerStringBuilder = new StringBuilder("Manager:");
-            var angestellterStringBuilder = new StringBuilder("Angestellte:");
+            var managerStringBuilder = new StringBuilder("Manager:\n");
+            var angestellterStringBuilder = new StringBuilder("Angestellte:\n");
+            //Type t = typeof(String);
+            //MethodInfo substring = t.GetMethod("substring", new Type[] { typeof(int), typeof(int) });
+            //Object result = substring.Invoke("Hello World", new Object[] { 7, 5 });
+            //Console.WriteLine("{0} returned \"{1}\"", substring, result);
 
             foreach (var mitarbeiter in MitarbeiterListe)
             {
-                if (mitarbeiter.GetType().Name == "Manager")
+                if (mitarbeiter.GetType() == typeof(Manager))
                 {
-                    managerStringBuilder.Append($"\n\t{mitarbeiter.PrintMitarbeiterListe()}");
+                    managerStringBuilder.Append($"\t{mitarbeiter.PrintMitarbeiterListe()}");
                 }
-                else if (mitarbeiter.GetType().Name == "Angestellter")
+                else if (mitarbeiter.GetType() == typeof(Angestellter))
                 {
-                    angestellterStringBuilder.Append($"\n\t{mitarbeiter.PrintMitarbeiterListe()}\n");
+                    angestellterStringBuilder.Append($"\t{mitarbeiter.PrintMitarbeiterListe()}\n");
                 }
             }
             stringBuilder.Append($"{managerStringBuilder}\n\n{angestellterStringBuilder}");
