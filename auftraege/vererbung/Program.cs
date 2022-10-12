@@ -55,11 +55,18 @@ class Program
         Car car1 = new Manta();
         Golf car2 = new GolfGTI();
 
-        ((Opel)car1).WhatAreYou();
-        ((GolfGTI)car2).WhatAreYou();
-        ((Manta)car1).WhatAreYou();
-        ((SportsCar)car1).WhatAreYou();
-        car2.WhatAreYou();
         car1.WhatAreYou();
+        car2.WhatAreYou();
+        ((Opel)car1).WhatAreYou();
+        ((Car)car1).WhatAreYou();
+        ((SportsCar)car1).WhatAreYou();
+        ((GermanCar)car1).WhatAreYou();
+
+        //((Opel)car1).WhatAreYou();
+        //((GolfGTI)car2).WhatAreYou();
+        //((Manta)car1).WhatAreYou();
+        //((SportsCar)car1).WhatAreYou();
+        //car2.WhatAreYou();
+        //car1.WhatAreYou();
     }
 }

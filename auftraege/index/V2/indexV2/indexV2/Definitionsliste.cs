@@ -1,12 +1,15 @@
 ﻿using indexV2;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Text;
 
 namespace erstellenEinesIndex
 {
-    internal class DefinitionList
+    public class DefinitionList
     {
+        public List<string> allValues = new List<string>();
         public Dictionary<string, List<string>> DefList { get; set; }
         public bool IsValid { get; set; }
 
@@ -16,10 +19,46 @@ namespace erstellenEinesIndex
             IsValid = false;
         }
 
-        public string GetValuesByIndex(string index)
+        public Dictionary<string, List<string>> FormatDefList()
         {
-            Dictionary<string, List<string>>.KeyCollection keys = DefList.Keys;
-            Dictionary<string, List<string>>.ValueCollection values = DefList.Values;
+            var allKeys = new List<string>();
+            var newDeflist = new Dictionary<string, List<string>>();
+            StringBuilder indexString = new StringBuilder();
+            IsValid = false;
+
+            FillAllValuesList();
+
+            foreach (var value in allValues)
+            {
+                var contentList = new List<string>();
+                foreach (KeyValuePair<string, List<string>> kvp in DefList)
+                {
+                    if (kvp.Value.Contains(value))
+                    {
+                        contentList.Add(kvp.Key);
+                        contentList = contentList.Distinct().ToList();
+                    }
+                }
+                newDeflist.Add(value, contentList);
+            }
+            return newDeflist;
+        }
+
+        private void FillAllValuesList()
+        {
+            foreach (KeyValuePair<string, List<string>> kvp in DefList)
+            {
+                foreach (var value in kvp.Value)
+                {
+                    allValues.Add(value.ToString());
+                    allValues = allValues.Distinct().ToList();
+                }
+            }
+        }
+
+
+        public string GetValuesContainingIndex(string index)
+        {
             StringBuilder valuesString = new StringBuilder();
 
             // build valuesString
@@ -44,10 +83,8 @@ namespace erstellenEinesIndex
             }
         }
 
-        public string GetIndexByValues(string value)
+        public string GetIndexesContainingValue(string value)
         {
-            Dictionary<string, List<string>>.KeyCollection keys = DefList.Keys;
-            Dictionary<string, List<string>>.ValueCollection values = DefList.Values;
             StringBuilder indexString = new StringBuilder();
             IsValid = false;
 
@@ -55,46 +92,19 @@ namespace erstellenEinesIndex
             foreach (KeyValuePair<string, List<string>> kvp in DefList)
             {
                 IsValid = true;
-                indexString.Append(kvp.Value.Contains(value) ? $"{kvp.Key}, ": "");
+                indexString.Append(kvp.Value.Contains(value) ? $"{kvp.Key}, " : "");
             }
 
             // invalid, error message
             if (IsValid)
             {
                 indexString.Remove(indexString.Length - 2, 2);
-                return $"{value}: {indexString}";
+                return $"{value}: {indexString.ToString()}";
             }
             else
             {
                 return $"{value} is not a valid value.";
             }
         }
-
-        //public static void Test()
-        //{
-        //    foreach (var inhalt in jederInhalt)
-        //    {
-        //        Console.Write($"{inhalt}: ");
-        //        int i = 0;
-        //        foreach (var index in jederIndex)
-        //        {
-        //            for (int zaehler = 1; zaehler < jederDatensatz.GetLength(1); zaehler++)
-        //            {
-        //                if (jederDatensatz[i, zaehler] != null && jederDatensatz[i, zaehler].Contains(inhalt))
-        //                {
-        //                    var nachricht = $"{index} ";
-        //                    Console.Write(nachricht);
-        //                }
-        //            }
-        //            i++;
-        //        }
-        //        Console.WriteLine("\n");
-        //    }
-        //    Console.ReadKey();
-        //    Console.Clear();
-        //    publicZaehler = 0;
-        //    jederIndex.Clear();
-        //    jederInhalt.Clear();
-        //}
     }
 }

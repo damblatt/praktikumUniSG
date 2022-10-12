@@ -19,9 +19,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vererbung", "vererbung\vere
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "calculator", "calculator\calculator.csproj", "{D55F4C40-611C-419A-8428-38AA8FE740A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "indexV1", "index\V1\index\indexV1.csproj", "{1EF46D52-F151-47ED-A7CB-925EF8FB2001}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "indexV1", "index\V1\index\indexV1.csproj", "{1EF46D52-F151-47ED-A7CB-925EF8FB2001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "indexV2", "index\V2\indexV2\indexV2\indexV2.csproj", "{AB279B07-7BA9-487F-A0F1-459DA3890E4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "indexV2", "index\V2\indexV2\indexV2\indexV2.csproj", "{AB279B07-7BA9-487F-A0F1-459DA3890E4A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uml", "uml\uml\uml.csproj", "{92A58534-415E-4F16-9283-21C67485B52C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uml.Test", "uml\uml.Test\uml.Test.csproj", "{14C6FC6B-ADCF-40F7-AB3D-8A67558386AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexV2.Test", "index\V2\IndexV2.Test\IndexV2.Test.csproj", "{1923067F-F5FA-49AD-BB6F-E66078E0600C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +75,18 @@ Global
 		{AB279B07-7BA9-487F-A0F1-459DA3890E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB279B07-7BA9-487F-A0F1-459DA3890E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB279B07-7BA9-487F-A0F1-459DA3890E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A58534-415E-4F16-9283-21C67485B52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A58534-415E-4F16-9283-21C67485B52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A58534-415E-4F16-9283-21C67485B52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A58534-415E-4F16-9283-21C67485B52C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14C6FC6B-ADCF-40F7-AB3D-8A67558386AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14C6FC6B-ADCF-40F7-AB3D-8A67558386AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14C6FC6B-ADCF-40F7-AB3D-8A67558386AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14C6FC6B-ADCF-40F7-AB3D-8A67558386AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1923067F-F5FA-49AD-BB6F-E66078E0600C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1923067F-F5FA-49AD-BB6F-E66078E0600C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1923067F-F5FA-49AD-BB6F-E66078E0600C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1923067F-F5FA-49AD-BB6F-E66078E0600C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,30 +1,54 @@
 ﻿using indexV2;
 using System.Collections;
 using System.Runtime.ExceptionServices;
+using System.Text;
 
 namespace erstellenEinesIndex
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            var dict = new Dictionary<string, List<string>>();
+            var defList = new Dictionary<string, List<string>>();
 
-            var blumeInhalt = new List<string> { "Blatt", "Stiel", "Bluete", "Gruen" };
-            dict.Add("Blume", blumeInhalt);
+            var blumeInhalt = new List<string> { "Blatt", "Blüte" };
+            defList.Add("Blume", blumeInhalt);
 
-            var baumInhalt = new List<string> { "Stamm", "Ast", "Bluete", "Gruen", "Blatt" };
-            dict.Add("Baum", baumInhalt);
+            var baumInhalt = new List<string> { "Blatt", "Stamm" };
+            defList.Add("Baum", baumInhalt);
 
-            var pilzInhalt = new List<string> { "Hut", "Farbe", "Stiel" };
-            dict.Add("Pilz", pilzInhalt);
+            var definitionListManager = new DefinitionList(defList);
 
+            // Print definition list
+            PrintDefList(defList);
 
-            var defListe = new DefinitionList(dict);
-            string inhalt = defListe.GetValuesByIndex("Pilz");
-            string index = defListe.GetIndexByValues("Gruen");
+            // Print modified definition list
+            var newDefList = definitionListManager.FormatDefList();
+            PrintDefList(newDefList);
+
+            // Search for values containing a specific index
+            string inhalt = definitionListManager.GetValuesContainingIndex("Pilz");
             Console.WriteLine(inhalt);
+
+            // Search for indexes containing a specific value
+            string index = definitionListManager.GetIndexesContainingValue("Gruen");
             Console.WriteLine(index);
+        }
+
+        private static void PrintDefList(Dictionary<string, List<string>> defList)
+        {
+            StringBuilder tempStringBuilder = new StringBuilder();
+            StringBuilder finalStringBuilder = new StringBuilder();
+            foreach (KeyValuePair<string, List<string>> kvp in defList)
+            {
+                tempStringBuilder.Clear();
+                tempStringBuilder.Append($"{kvp.Key}: ");
+                tempStringBuilder.AppendJoin(", ", kvp.Value);
+                finalStringBuilder.Append($"{tempStringBuilder}\n");
+            }
+            Console.WriteLine(finalStringBuilder.ToString());
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
