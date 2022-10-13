@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mathProblemGenerator
 {
-    internal class Manager
+    public class Manager
     {
         private int AmountOfTasks { get; set; }
         private int Difficulty { get; set; }
@@ -19,11 +19,11 @@ namespace mathProblemGenerator
             Console.WriteLine("Hey user. Since you're so bad at math, this app will help you getting better at it.");
             
             AmountOfCorrectTasks = 0;
-            SetAmountOfTasks();
-            SetDifficulty();
+            AmountOfTasks = SetAmountOfTasks();
+            Difficulty = SetDifficulty();
         }
 
-        public void Mainloop()
+        public void MainLoop()
         {
             for (int i = 0; i < AmountOfTasks; i++)
             {
@@ -56,7 +56,7 @@ namespace mathProblemGenerator
             return stringBuilder.ToString();
         }
 
-        private void SetAmountOfTasks()
+        private int SetAmountOfTasks()
         {
             int number = 0;
             Console.Write("How many tasks would you like to be given? Enter a positive number: ");
@@ -65,11 +65,12 @@ namespace mathProblemGenerator
                 Console.WriteLine("Enter a valid number.");
                 Console.Write("How many tasks would you like to be given? ");
             }
-            AmountOfTasks = number;
+            return number;
         }
 
-        private void SetDifficulty()
+        private int SetDifficulty()
         {
+            int difficulty = 0;
             bool isDecidedAndValid = false;
             while (!isDecidedAndValid)
             {
@@ -80,9 +81,9 @@ namespace mathProblemGenerator
                 Console.WriteLine("[3] HARD");
                 Console.WriteLine("[4] IMPOSSIBLE");
 
-                Difficulty = ConvertDifficultyStringToDifficultyInt(Console.ReadLine().ToLower());
+                difficulty = ConvertDifficultyStringToDifficultyInt(Console.ReadLine().ToLower());
 
-                switch (Difficulty)
+                switch (difficulty)
                 {
                     case 0:
                         isDecidedAndValid = false;
@@ -104,6 +105,7 @@ namespace mathProblemGenerator
                         break;
                 }
             }
+            return difficulty;
         }
 
         private int ConvertDifficultyStringToDifficultyInt(string difficulty)

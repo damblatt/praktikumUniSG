@@ -1,16 +1,16 @@
 ﻿namespace mathProblemGenerator
 {
-    internal class Program
+    public class Program
     {
-        private static Manager _consoleHelper = new Manager();
-
         static void Main(string[] args)
         {
-            _consoleHelper.SetupGame();
+            Manager manager = new Manager();
 
-            _consoleHelper.Mainloop();
+            manager.SetupGame();
 
-            Console.WriteLine(_consoleHelper.EvaluationAndFinalOutput());
+            manager.MainLoop();
+
+            Console.WriteLine(manager.EvaluationAndFinalOutput());
 
             Console.ReadKey();
         }
