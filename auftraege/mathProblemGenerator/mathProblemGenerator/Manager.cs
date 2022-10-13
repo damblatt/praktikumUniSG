@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mathProblemGenerator.TaskComponents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,19 +7,56 @@ using System.Threading.Tasks;
 
 namespace mathProblemGenerator
 {
-    internal class ConsoleHelper
+    internal class Manager
     {
-        public int CorrectTasks { get; set; }
+        private int AmountOfTasks { get; set; }
+        private int Difficulty { get; set; }
+        private int AmountOfCorrectTasks { get; set; }
+        private List<Task> WrongSolvedTasks = new List<Task>();
 
-        public (int, int) SetupGame()
+        public void SetupGame()
         {
-            CorrectTasks = 0;
-            int number = SetAmountOfTasks();
-            int difficulty = SetDifficulty();
-            return (number, difficulty);
+            Console.WriteLine("Hey user. Since you're so bad at math, this app will help you getting better at it.");
+            
+            AmountOfCorrectTasks = 0;
+            SetAmountOfTasks();
+            SetDifficulty();
         }
 
-        private int SetAmountOfTasks()
+        public void Mainloop()
+        {
+            for (int i = 0; i < AmountOfTasks; i++)
+            {
+                Task task = new Task(Difficulty);
+                Console.Clear();
+                Console.WriteLine($"{task.GetTask()} = ");
+                Console.Write("x = ");
+                int usersGuess = GetUsersGuess(task);
+                if (CheckResult(usersGuess, task.Result))
+                {
+                    AmountOfCorrectTasks++;
+                }
+                else { WrongSolvedTasks.Add(task); }
+            }
+        }
+
+        public string EvaluationAndFinalOutput()
+        {
+            StringBuilder stringBuilder = new StringBuilder($"Out of {AmountOfTasks} math problems you solved {AmountOfCorrectTasks} of them correctly.");
+
+            if (!(AmountOfCorrectTasks == AmountOfTasks))
+            {
+                stringBuilder.Append("\nHere are the tasks you couldn't solve:\n");
+                foreach (Task task in WrongSolvedTasks)
+                {
+                    stringBuilder.Append($"{task.GetTask()} = {task.Result}\n");
+                }
+            } else { stringBuilder.Append(" CONGRATULATIONS!"); }
+
+            return stringBuilder.ToString();
+        }
+
+        private void SetAmountOfTasks()
         {
             int number = 0;
             Console.Write("How many tasks would you like to be given? Enter a positive number: ");
@@ -27,14 +65,12 @@ namespace mathProblemGenerator
                 Console.WriteLine("Enter a valid number.");
                 Console.Write("How many tasks would you like to be given? ");
             }
-            return number;
+            AmountOfTasks = number;
         }
 
-        private int SetDifficulty()
+        private void SetDifficulty()
         {
-            int difficulty = 0;
             bool isDecidedAndValid = false;
-            List<int> difficultiesList = new List<int>() { 1, 2, 3, 4 };
             while (!isDecidedAndValid)
             {
                 Console.Clear();
@@ -44,9 +80,9 @@ namespace mathProblemGenerator
                 Console.WriteLine("[3] HARD");
                 Console.WriteLine("[4] IMPOSSIBLE");
 
-                difficulty = ConvertDifficultyStringToDifficultyInt(Console.ReadLine().ToLower());
+                Difficulty = ConvertDifficultyStringToDifficultyInt(Console.ReadLine().ToLower());
 
-                switch (difficulty)
+                switch (Difficulty)
                 {
                     case 0:
                         isDecidedAndValid = false;
@@ -68,7 +104,6 @@ namespace mathProblemGenerator
                         break;
                 }
             }
-            return difficulty;
         }
 
         private int ConvertDifficultyStringToDifficultyInt(string difficulty)
@@ -93,6 +128,23 @@ namespace mathProblemGenerator
                     return 4;
                 default: return 0;
             }
+        }
+
+        private int GetUsersGuess(Task task)
+        {
+            int userGuess = 0;
+            while (!Int32.TryParse(Console.ReadLine(), out userGuess) || userGuess < 0)
+            {
+                Console.Clear();
+                Console.WriteLine($"{task.GetTask()} = ");
+                Console.Write("x = ");
+            }
+            return userGuess;
+        }
+
+        private bool CheckResult(int usersGuess, int result)
+        {
+            return (usersGuess == result);
         }
     }
 }

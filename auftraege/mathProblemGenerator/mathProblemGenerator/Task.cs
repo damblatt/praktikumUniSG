@@ -3,7 +3,7 @@ using System.Security.AccessControl;
 
 namespace mathProblemGenerator
 {
-    internal class NewTask
+    internal class Task
     {
         // properties
         private int Difficulty { get; set; }
@@ -13,26 +13,21 @@ namespace mathProblemGenerator
         public int Result { get; set; }
 
         // constructor
-        public NewTask(int difficulty)
+        public Task(int difficulty)
         {
-            this.Difficulty = difficulty;
-            this.OperatorString = SetOperator();
-            this.FirstNumber = SetFirstNumber();
-            this.SecondNumber = SetSecondNumber();
-            this.Result = SetResult();
+            Difficulty = difficulty;
+            OperatorString = SetOperator();
+            FirstNumber = SetFirstNumber();
+            SecondNumber = SetSecondNumber();
+            Result = SetResult();
         }
 
+        // methods
         public string GetTask()
         {
             return $"{FirstNumber} {OperatorString} {SecondNumber}";
         }
 
-        public bool CheckResult(int result)
-        {
-            return (result == Result);
-        }
-            
-        // methods
         private string SetOperator()
         {
             Random random = new Random();
@@ -88,7 +83,7 @@ namespace mathProblemGenerator
                 case 1:
                     return random.Next(1, 12);
                 case 2:
-                    return random.Next(1, 100); // max value for subtraction is the value of the first number
+                    return random.Next(1, 100);
                 case 3:
                     return random.Next(1, 600);
                 case 4:
