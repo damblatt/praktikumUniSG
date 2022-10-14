@@ -8,7 +8,7 @@
         {
             var fileContent = File.ReadAllText("Resources/structure.txt");
             var masterNode = new Node(Node.GetFirstChildrenList(), "");
-            masterNode.lol(masterNode.Children);
+            masterNode.CreateNode(masterNode.ChildrenStringList);
         }
 
         //private static List<string> FillFirstChildrenList()

@@ -17,22 +17,25 @@ namespace treeStructureV2
 
         public static int CurrentLine { get; set; } = Program.CurrentLine;
 
-        public List<string> Children { get; set; }
+        public List<string> ChildrenStringList { get; set; }
+        public List<Node> ChildrenObjList { get; set; } = new List<Node>();
+
         public string Content { get; set; }
 
         // constructor
         public Node(List<string> children, string content)
         {
-            Children = children;
+            ChildrenStringList = children;
             Content = content;
         }
 
-        public void lol(List<string> children)
+        public void CreateNode(List<string> children)
         {
             foreach (var child in children)
             {
                 Node node = new Node(GetChildrenList(child), child);
-                lol(node.Children);
+                node.CreateNode(node.ChildrenStringList);
+                ChildrenObjList.Add(node);
             }
         }
 
