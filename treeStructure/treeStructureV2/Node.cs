@@ -8,13 +8,48 @@ namespace treeStructureV2
 {
     public class Node
     {
-        public List<Node> children;
-        public Object Data { get; set; }
+        public static int CurrentLine { get; set; } = Program.CurrentLine;
+        public static int CurrentColumn { get; set; } = Program.CurrentColumn;
+        private static string fileContent = File.ReadAllText("Resources/structure.txt");
+        public static string[] ArrayWithContent { get; set; } = fileContent.Split(Environment.NewLine);
+        public static string[,] Table { get; set; } = Program.Table;
 
-        public void AddChild(string data)
+        public string Content { get; set; }
+        public Node Parent { get; set; }
+        public List<string> Children;
+
+        public Node(Node parent, List<string> children, string content = "")
         {
-            Node node = new Node();
-            children.Add(node);
+            Parent = parent;
+            Children = children;
+            Content = content;
         }
+
+        public void CreateChildrensNode()
+        {
+            foreach (var child in Children)
+            {
+                RemoveTabsForChildElements();
+            }
+        }
+
+        public static void RemoveTabsForChildElements()
+        {
+            List<string> children = new List<string>();
+            var manager = new Manager();
+            int numberOfCurrentTabs = manager.GetNumberOfTabs(ArrayWithContent[CurrentLine]);
+            while (manager.GetNumberOfTabs(ArrayWithContent[CurrentLine + 1]) == numberOfCurrentTabs + 1)
+            {
+                children.Add(ArrayWithContent[CurrentLine + 1]);
+                CurrentLine++;
+                CurrentColumn++;
+            }
+        }
+
+        //public void AddChild()
+        //{
+        //    Node node = new Node();
+        //    Children.Add(node);
+        //}
     }
 }
