@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testprojekt", "..\Testproje
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mathProblemGenerator", "mathProblemGenerator\mathProblemGenerator\mathProblemGenerator.csproj", "{4E7E2B91-CA9A-476D-9705-78F40F1F426E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeStructure", "..\treeStructure\treeStructure\treeStructure.csproj", "{9D03FF03-66FD-42AA-85D3-D1D74D88A276}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "treeStructure", "..\treeStructure\treeStructure\treeStructure.csproj", "{9D03FF03-66FD-42AA-85D3-D1D74D88A276}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "treeStructureV2", "..\treeStructure\treeStructureV2\treeStructureV2.csproj", "{9E93A96B-D3E9-4129-B70F-80E085507E3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{9D03FF03-66FD-42AA-85D3-D1D74D88A276}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D03FF03-66FD-42AA-85D3-D1D74D88A276}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D03FF03-66FD-42AA-85D3-D1D74D88A276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E93A96B-D3E9-4129-B70F-80E085507E3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E93A96B-D3E9-4129-B70F-80E085507E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E93A96B-D3E9-4129-B70F-80E085507E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E93A96B-D3E9-4129-B70F-80E085507E3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
