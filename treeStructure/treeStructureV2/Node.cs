@@ -8,42 +8,61 @@ namespace treeStructureV2
 {
     public class Node
     {
+        // content list
+        /* */ private static string fileContent = File.ReadAllText("Resources/structure.txt");
+        /* */ private static string[] nodesContent { get; set; } = fileContent.Split(Environment.NewLine);
+        /* */ private static string[] firstNodesContent = new string[1] { "" };
+        /* */ public static string[] allNodesContent = firstNodesContent.Concat(nodesContent).ToArray();
+        // content list
+
         public static int CurrentLine { get; set; } = Program.CurrentLine;
-        public static int CurrentColumn { get; set; } = Program.CurrentColumn;
-        private static string fileContent = File.ReadAllText("Resources/structure.txt");
-        public static string[] ArrayWithContent { get; set; } = fileContent.Split(Environment.NewLine);
-        public static string[,] Table { get; set; } = Program.Table;
 
+        public List<string> Children { get; set; }
         public string Content { get; set; }
-        public Node Parent { get; set; }
-        public List<string> Children;
 
-        public Node(Node parent, List<string> children, string content = "")
+        // constructor
+        public Node(List<string> children, string content)
         {
-            Parent = parent;
             Children = children;
             Content = content;
         }
 
-        public void CreateChildrensNode()
+        public void lol(List<string> children)
         {
-            foreach (var child in Children)
+            foreach (var child in children)
             {
-                RemoveTabsForChildElements();
+                Node node = new Node(GetChildrenList(child), child);
+                lol(node.Children);
             }
         }
 
-        public static void RemoveTabsForChildElements()
+        public static List<string> GetFirstChildrenList()
         {
+            List<string> firstChildrenList = new List<string>();
+            var manager = new Manager();
+            for(int i = 0; i < (allNodesContent.Length -1); i++)
+            {
+                CurrentLine++;
+                if (manager.GetNumberOfTabs(allNodesContent[CurrentLine]) == 0)
+                {
+                    firstChildrenList.Add(allNodesContent[CurrentLine]);
+                }
+            }
+            return firstChildrenList;
+        }
+
+        public static List<string> GetChildrenList(string content)
+        {
+            CurrentLine = Array.IndexOf(allNodesContent, content);
             List<string> children = new List<string>();
             var manager = new Manager();
-            int numberOfCurrentTabs = manager.GetNumberOfTabs(ArrayWithContent[CurrentLine]);
-            while (manager.GetNumberOfTabs(ArrayWithContent[CurrentLine + 1]) == numberOfCurrentTabs + 1)
+            int numberOfCurrentTabs = manager.GetNumberOfTabs(allNodesContent[CurrentLine]);
+            while (manager.GetNumberOfTabs(allNodesContent[CurrentLine + 1]) == numberOfCurrentTabs + 1)
             {
-                children.Add(ArrayWithContent[CurrentLine + 1]);
+                children.Add(allNodesContent[CurrentLine + 1]);
                 CurrentLine++;
-                CurrentColumn++;
             }
+            return children;
         }
 
         //public void AddChild()
